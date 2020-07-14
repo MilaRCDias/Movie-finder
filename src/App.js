@@ -7,8 +7,13 @@ const App =()=> {
 const [inputValue , setInputValue] = useState('');
 
 
-const handleSearch = ()=>{}
+ const handleSearch = (e) => {
+   e.preventDefault();
 
+   apiFetch(query);
+ };
+
+ 
   return (
     <div className="App">
       Movie Search

@@ -1,8 +1,11 @@
 import React, { useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Search from './components/Search'
+import { apiFetch } from "./http/api";
 
+/** 
+ * 
+ * */  
 const App =()=> {
 const [inputValue , setInputValue] = useState('');
   const [movieList, setMovieList] = useState();
@@ -15,7 +18,7 @@ const [inputValue , setInputValue] = useState('');
  };
 
 
-    <div className="container">
+    return (<div className="container">
       <section className="header">
         <h1>Movie Search</h1>
 

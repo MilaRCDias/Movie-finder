@@ -3,14 +3,19 @@
   max-width: 1280px;
   padding: 40px;
 }
+.main{
+  background-image: url('./images/background4.jpg');
+width: auto;
+height: 400px;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
 
-h1{
-  font-size: 4rem ;
 }
+
  .header{
      text-align: center;
-     margin: 2rem auto 8rem;
-
+     margin: 2rem auto 4rem;
  }
  .resultWrap{
       margin: 100px auto;
@@ -24,4 +29,9 @@ h1{
 .result{
   display: flex;
   justify-content: center;
+}
+
+.logo{
+  width: 350px;
+  text-align: center;
 }

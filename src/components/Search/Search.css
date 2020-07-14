@@ -10,7 +10,7 @@
   padding: 0 2rem;
   margin: 3rem 0;
   font-size: 1.5rem;
-  color: dodgerblue;
+  color: #1e90ff;
   border-radius: 1rem;
   outline: none;
 }
@@ -23,7 +23,7 @@
   padding: 1rem;
   border-radius: 1rem;
   width: 20rem;
-  background-color: dodgerblue;
+  background-color: #1e90ff;
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;

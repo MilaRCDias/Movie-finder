@@ -1,12 +1,16 @@
-.footer{
-    background-color: grey;
-    height: 20rem;
-    display: flex;
-    justify-content: space-around;
+.footer {
+  background-color: grey;
+  height: 20rem;
+  display: flex;
+  justify-content: space-around;
+  background-image: url("../../images/background3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
-.content{
-    margin: 2rem;                        
+.content {
+  margin: 2rem;
 }
-.git{
-    width: 50px;
+.git {
+  width: 50px;
 }

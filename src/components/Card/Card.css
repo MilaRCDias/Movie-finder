@@ -1,9 +1,16 @@
 .cardWrap {
   width: 320px;
-  box-shadow: 5px 5px 5px black;
-  border-radius: 10px;
   margin: 10px;
-  background-color: gray;
+  border: 1px solid grey;
   padding: 15px;
-  text-align: center;
+  
+}
+
+.average{
+    border-radius: 50%;
+    border: 1px solid gray;
+    padding: 5px;
+}
+.poster{
+    text-align: center;
 }

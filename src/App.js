@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Search from './components/Search'
 
-function App() {
+const App =()=> {
+const [inputValue , setInputValue] = useState('');
+
+
+const handleSearch = ()=>{}
+
   return (
     <div className="App">
-     Movie Search
+      Movie Search
+      <Search inputValue={inputValue} setInputValue={setInputValue} onClick={handleSearch} />
     </div>
   );
 }

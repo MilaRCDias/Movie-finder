@@ -5,19 +5,29 @@ import Search from './components/Search'
 
 const App =()=> {
 const [inputValue , setInputValue] = useState('');
+  const [movieList, setMovieList] = useState();
 
 
  const handleSearch = (e) => {
    e.preventDefault();
 
-   apiFetch(query);
+   apiFetch(inputValue, setMovieList);
  };
 
- 
-  return (
-    <div className="App">
-      Movie Search
-      <Search inputValue={inputValue} setInputValue={setInputValue} onClick={handleSearch} />
+
+    <div className="container">
+      <section className="header">
+        <h1>Movie Search</h1>
+
+
+
+      </section>
+      <section > 
+
+        <Search onClick={handleSearch} setInputValue={setInputValue} inputValue={inputValue} />
+      </section>
+
+      
     </div>
   );
 }

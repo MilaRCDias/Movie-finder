@@ -12,3 +12,16 @@ h1{
      margin: 2rem auto 8rem;
 
  }
+ .resultWrap{
+      margin: 100px auto;
+
+}
+.wrapList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.result{
+  display: flex;
+  justify-content: center;
+}

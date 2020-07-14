@@ -3,9 +3,9 @@ import "./App.css";
 import Search from "./components/Search";
 import { apiFetch } from "./http/api";
 import Card from "./components/Card";
-
+import Footer from './components/Footer';
 /**
- *
+ * App component page.
  * */
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
   };
 
   return (
+    <>
     <div className="container">
       <section className="header">
         <h1>Movie Search</h1>
@@ -39,8 +40,11 @@ const App = () => {
         <div className="wrapList">
           <Card movieList={movieList} />
         </div>
+    
       </section>
     </div>
+      <Footer />
+    </>
   );
 };
 

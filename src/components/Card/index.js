@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Card.css";
-import imgPlaceholder from "../images/img-placeholder.png";
+import imgPlaceholder from "../../images/img-placeholder.png";
 
 
 

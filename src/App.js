@@ -12,7 +12,10 @@ import imgLogo from './images/movie-finder-logo.svg'
 const App = () => {
   const [inputValue, setInputValue] = useState("");
   const [movieList, setMovieList] = useState();
-  const [topRated, setTopRated] = useState()
+  const [topRated, setTopRated] = useState();
+  const [page, setPage] = useState(1);
+
+
   const handleSearch = (e) => {
     e.preventDefault();
 
@@ -21,9 +24,17 @@ const App = () => {
 
 
   useEffect(() => {
-    apiFetchTopRated(setTopRated);
+    apiFetchTopRated(setTopRated, page);
    
-  }, [])
+  }, [page])
+
+const handleMore =()=>{
+  let next = page +1;
+  if(next > 3){
+next = 3;
+  }
+  setPage(next);
+}
 
   return (
     <>
@@ -54,9 +65,10 @@ const App = () => {
               </div>
                <div className="wrapList">
               <Card movieList={topRated} />
-            </div></>
+            </div>
+              <button onClick={handleMore} >Load More</button>
+            </>
             )}
-           
           </section>
         </div>
         <Footer />

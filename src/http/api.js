@@ -16,8 +16,8 @@ export const apiFetch = async (query, setMovieList) => {
   }
 };
 
-export const apiFetchTopRated = async (setTopRated) => {
-  const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_MOVIE_KEY}&language=en-US&page=1`;
+export const apiFetchTopRated = async (setTopRated, page) => {
+  const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_MOVIE_KEY}&language=en-US&page=${page}`;
   try {
     const response = await fetch(url);
     const data = await response.json();

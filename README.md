@@ -6,6 +6,7 @@ You can type a name, find the movie and know all about it.
 
 ### Check it out on Netlify
 
+https://movie-finder-search.netlify.app/
 
 ### Check it out locally
 

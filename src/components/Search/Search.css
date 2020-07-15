@@ -35,4 +35,5 @@
   -webkit-box-shadow: 0px 5px 40px -10px rgba(212, 211, 211, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(204, 203, 203, 0.57);
   transition: all 0.4s ease 0s;
+  transform: scale(1.1);
 }

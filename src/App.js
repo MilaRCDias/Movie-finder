@@ -5,6 +5,8 @@ import { apiFetch, apiFetchTopRated } from "./http/api";
 import Card from "./components/Card";
 import Footer from './components/Footer';
 import imgLogo from './images/movie-finder-logo.svg'
+import Paginate from 'react-paginate';
+
 /**
  * App component page.
  * */
@@ -14,27 +16,27 @@ const App = () => {
   const [movieList, setMovieList] = useState();
   const [topRated, setTopRated] = useState();
   const [page, setPage] = useState(1);
-
+const [totalPage, setTotalPage] = useState();
 
   const handleSearch = (e) => {
     e.preventDefault();
 
-    apiFetch(inputValue, setMovieList);
+    apiFetch(inputValue, setMovieList, setTotalPage);
   };
 
 
   useEffect(() => {
-    apiFetchTopRated(setTopRated, page);
+    apiFetchTopRated(setTopRated, page, setTotalPage);
    
   }, [page])
 
-const handleMore =()=>{
-  let next = page +1;
-  if(next > 3){
-next = 3;
-  }
-  setPage(next);
-}
+ const handlePageClick =(data)=>{
+   const selectPage = data.selected+1;
+  setPage(selectPage);
+} 
+
+
+
 
   return (
     <>
@@ -51,24 +53,54 @@ next = 3;
             />
           </section>
           <section className="resultWrap">
-            {movieList && (<>
-              <div className="result">
-                <h4> search result:</h4>
-              </div>
-               <div className="wrapList">
-              <Card movieList={movieList} />
-            </div></>
+            {movieList && (
+              <>
+                <div className="result">
+                  <h4> search result:</h4>
+                </div>
+                <div className="wrapList">
+                  <Card movieList={movieList} />
+                </div>
+                <Paginate
+                  previousLabel={"previous"}
+                  nextLabel={"next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={totalPage}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+                  initialPage={page - 1}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages-pagination"}
+                  activeClassName={"active"}
+                />
+              </>
             )}
-            {topRated && ( <>
-              <div className="result">
-                <h4> Top Rated:</h4>
-              </div>
-               <div className="wrapList">
-              <Card movieList={topRated} />
-            </div>
-              <button onClick={handleMore} >Load More</button>
-            </>
-            )}
+            {topRated && !movieList ? (
+              <>
+                <div className="result">
+                  <h4> Top Rated:</h4>
+                </div>
+                <div className="wrapList">
+                  <Card movieList={topRated} />
+                </div>
+                <Paginate
+                  previousLabel={"previous"}
+                  nextLabel={"next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={totalPage}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+                  initialPage={page - 1}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages-pagination"}
+                  activeClassName={"active"}
+                />
+              </>
+            ):null}
           </section>
         </div>
         <Footer />

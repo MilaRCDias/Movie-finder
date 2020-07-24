@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
-import Search from "./components/Search";
-import { apiFetch, apiFetchTopRated } from "./http/api";
-import Card from "./components/Card";
-import Footer from './components/Footer';
-import imgLogo from './images/movie-finder-logo.svg'
 import Paginate from 'react-paginate';
+import "./App.css";
+import Search from "../../components/Search";
+import { apiFetch, apiFetchTopRated } from "../../http/api";
+import Card from "../../components/Card";
+import Footer from '../../components/Footer';
+import imgLogo from '../../images/movie-finder-logo.svg';
 
 /**
  * App component page.

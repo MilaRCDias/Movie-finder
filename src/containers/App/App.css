@@ -4,7 +4,7 @@
   padding: 40px;
 }
 .main{
-  background-image: url('./images/background4.jpg');
+  background-image: url('../../images/background4.jpg');
 width: auto;
 height: 400px;
 background-size: cover;

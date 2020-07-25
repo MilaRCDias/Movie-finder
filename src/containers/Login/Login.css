@@ -1,0 +1,61 @@
+.login{
+     background-image: url('../../images/background4.jpg');
+width: auto;
+height: 100vh;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+
+}
+.login-wrap{
+     display: flex;
+}
+
+.form-login{
+     display: flex;
+     width: 600px;
+     margin: 10em auto 0;
+     background-color: rgba(82, 87, 92, 0.3);   
+     padding: 2em;
+  
+}
+
+.formik{
+     display: flex;
+     flex-direction: column;
+     margin: 0 auto;
+}
+
+.input-field{
+     margin: 1em;
+     width: 20em;
+     height: 3em;
+       border-radius: 1rem;
+     outline: none;
+      border: none;
+    padding: 0.5em;
+
+}
+.input-btn{
+     margin: 1em;
+     width: 20em;
+     height: 3em;
+     background-color: dodgerblue;
+     color: #ffffff;
+       border-radius: 1rem;
+  outline: none;
+    border: none;
+    text-transform: uppercase;
+
+}
+
+.login-title{
+     margin-left: 0.5em;
+}
+
+   @media (max-width: 600px) {
+        .form-login{
+             width: 90%;
+        }
+          
+     }

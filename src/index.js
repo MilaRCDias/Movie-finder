@@ -6,11 +6,13 @@ import './index.css';
 import App from './containers/App/App';
 import Login from './containers/Login';
 import * as serviceWorker from './serviceWorker';
-import Store from './store'
+import configureStore from "./store/store";
+
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={Store}>
+    <Provider store={store}>
       <Router>
         <Switch>
           <Route exact path="/" component={App} />

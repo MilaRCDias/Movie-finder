@@ -29,4 +29,7 @@ h5{
   font-size: 2rem;
 }
 
-
+a{
+  color: #1e90ff;
+  text-decoration: none;
+}

@@ -1,8 +1,9 @@
 .navbar-wrap{
-    background-color: #000000;
+    background-color: #2b2b2b;
     color: #1e90ff;
     height: 5em;
     display: flex;
     justify-content: flex-end;
-    padding: 0 2em;
+    padding: 0 6em;
+    align-items: center;
 }

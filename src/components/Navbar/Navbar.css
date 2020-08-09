@@ -1,0 +1,8 @@
+.navbar-wrap{
+    background-color: #000000;
+    color: #1e90ff;
+    height: 5em;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2em;
+}

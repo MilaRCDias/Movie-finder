@@ -1,25 +1,22 @@
 import React from 'react';
 import {Formik} from 'formik';
 import { connect} from 'react-redux';
-import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
-
-import * as authAction from '../../store/actions/authActions'
+import {authUser} from '../../store/actions/authActions'
 import './Login.css'
+import Navbar from '../../components/Navbar'
 
 
-const Login = ({ actions }) => {
-
-
+const Login = ({ authUser }) => {
   const handleLogin = (values) => {
     console.log("login", values);
-    actions.authUser(values);
+    authUser(values);
   };
-
-
 
   return (
     <div className="login">
+      <Navbar />
+
       <div className="login-wrap">
         <div className="form-login">
           <Formik
@@ -85,12 +82,12 @@ const Login = ({ actions }) => {
 };
 
 Login.propTypes = {
-  actions: PropTypes.object.isRequired,
+  authUser: PropTypes.func.isRequired,
 };
 
  const mapDispatchToProps =(dispatch)=> {
   return {
-    actions: bindActionCreators(authAction, dispatch) 
+    authUser: (user) => dispatch(authUser(user)),
   };
 } 
 

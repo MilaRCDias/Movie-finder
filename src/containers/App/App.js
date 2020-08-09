@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Paginate from 'react-paginate';
 import "./App.css";
 import Search from "../../components/Search";
+import Navbar from '../../components/Navbar';
 import { apiFetch, apiFetchTopRated } from "../../http/api";
 import Card from "../../components/Card";
 import Footer from '../../components/Footer';
@@ -41,6 +42,7 @@ const [totalPage, setTotalPage] = useState();
   return (
     <>
       <div className="main">
+          <Navbar />
         <div className="container">
           <section className="header">
             <img src={imgLogo} className="logo" />

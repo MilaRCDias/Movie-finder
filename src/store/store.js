@@ -1,14 +1,24 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./reducers";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
+import thunk from "redux-thunk";
+import { getFirestore } from "redux-firestore";
+import { getFirebase } from "react-redux-firebase";
 
 export default function configureStore(initialState) {
   const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+  // add support for Redux dev tools
 
   return createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(reduxImmutableStateInvariant()))
+    composeEnhancers(
+      applyMiddleware(
+        reduxImmutableStateInvariant(),
+        thunk.withExtraArgument({ getFirestore, getFirebase })
+      )
+    )
   );
 }

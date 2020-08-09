@@ -18,12 +18,15 @@ const userReducer = (state = initialState, action) => {
         userId: action.uid,
         email: action.email,
       };
-
     case types.AUTH_USER:
       return { ...action.user };
 
     case types.SIGNOUT_SUCCESS:
       return state;
+    case types.SIGNUP_SUCCESS:
+      return { ...state, authError: null };
+    case types.SIGNUP_ERROR:
+      return { ...state, authError: action.err.message };
 
     default:
       return state;

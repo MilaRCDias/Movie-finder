@@ -16,9 +16,9 @@ const Navbar = ({ authId, signOut }) => {
       ) : (
         <>
           <Link to="/login">
-            <h5>Login</h5>
+            <h5>SignIn</h5>
           </Link>
-          <h5>Register</h5>
+      
         </>
       )}
     </div>

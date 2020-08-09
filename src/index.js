@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./containers/App/App";
 import Login from "./containers/Login";
+import Register from "./containers/Register";
 import * as serviceWorker from "./serviceWorker";
 import configureStore from "./store/store";
 import firebase from "./firebase/firebaseConfig";
@@ -32,6 +33,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={App} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
           </Switch>
         </Router>
       </ReactReduxFirebaseProvider>

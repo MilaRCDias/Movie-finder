@@ -1,23 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Redirect } from "react-router-dom";
-import { authUser, signUp } from "../../store/actions/authActions";
+import { authUser } from "../../store/actions/authActions";
+import "./Register.css";
 import Navbar from "../../components/Navbar";
-import "./Login.css";
+import { Redirect, Link } from "react-router-dom";
 
-const Login = ({ authUser, authError, authId }) => {
-  const [register, setRegister] = useState(false);
-
-  const handleLogin = (values) => {
-    console.log("login", values);
-    authUser(values);
-  };
-
+const Register = ({ authUser, authError, authId }) => {
   const handleRegister = (values) => {
-    console.log("register", values);
-    signUp(values);
+    authUser(values);
   };
 
   if (authId) return <Redirect to="/" />;
@@ -41,7 +33,7 @@ const Login = ({ authUser, authError, authId }) => {
               }
               return errors;
             }}
-            onSubmit={register ? handleRegister : handleLogin}
+            onSubmit={handleRegister}
           >
             {({
               values,
@@ -53,11 +45,7 @@ const Login = ({ authUser, authError, authId }) => {
               isSubmitting,
             }) => (
               <form onSubmit={handleSubmit} className="formik">
-                {register ? (
-                  <h4 className="login-title">Please register.</h4>
-                ) : (
-                  <h4 className="login-title">Welcome back.</h4>
-                )}
+                <h4 className="login-title">Welcome.</h4>
                 {authError ? <p className="error">{authError}</p> : null}
                 <input
                   type="email"
@@ -84,21 +72,11 @@ const Login = ({ authUser, authError, authId }) => {
                   disabled={isSubmitting}
                   className="input-btn"
                 >
-                  {register ? "register" : "login"}
+                  register
                 </button>
-                <div className="login-register">
-                  {register ? (
-                    <p>
-                      Already an user?{" "}
-                      <a onClick={() => setRegister(false)}> LogIn.</a>{" "}
-                    </p>
-                  ) : (
-                    <p>
-                      Not an user?{" "}
-                      <a onClick={() => setRegister(true)}> Register.</a>{" "}
-                    </p>
-                  )}
-                </div>
+                <p>
+                  Already an user? <Link to="/login"> Login.</Link>{" "}
+                </p>
               </form>
             )}
           </Formik>
@@ -108,7 +86,7 @@ const Login = ({ authUser, authError, authId }) => {
   );
 };
 
-Login.propTypes = {
+Register.propTypes = {
   authUser: PropTypes.func.isRequired,
   authError: PropTypes.string,
 };
@@ -122,8 +100,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     authUser: (user) => dispatch(authUser(user)),
-    signUp: (user) => dispatch(signUp(user)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

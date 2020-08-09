@@ -1,9 +1,8 @@
 import * as types from "./actionTypes";
 
 export const authUser=(user)=> {
-  return (dispatch, getState, {getFirebase, getFirestore})=>{
-    // async call database
-// const firestore = getFirestore();
+  return (dispatch, getState, {getFirebase})=>{
+  
 const firebase = getFirebase();
 firebase.auth().signInWithEmailAndPassword(
   user.email,
@@ -14,16 +13,21 @@ firebase.auth().signInWithEmailAndPassword(
   dispatch({ type: types.AUTH_ERROR, err });
 });
 
-/* firestore.collection('users').add({
-  ...user,
 
-})
-    dispatch({ type: types.AUTH_USER, user });
-  }
-  
- */
   }
 };
 
+export const signOut = () => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        dispatch({ type: types.SIGNOUT_SUCCESS });
+      });
+  };
+};
 
   

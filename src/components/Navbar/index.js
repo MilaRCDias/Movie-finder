@@ -2,18 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import {Link} from 'react-router-dom'
 import "./Navbar.css";
+import { signOut } from "../../store/actions/authActions";
 
-const Navbar = ({ authId }) => {
-
-//TODO register and signout
-
+const Navbar = ({ authId, signOut }) => {
+  //TODO register
 
   return (
     <div className="navbar-wrap">
       {authId ? (
-        <Link to="/login">
-          <h5>SignOut</h5>
-        </Link>
+        <a onClick={signOut} className="signout">
+          <h5>Log Out</h5>
+        </a>
       ) : (
         <>
           <Link to="/login">
@@ -27,10 +26,14 @@ const Navbar = ({ authId }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     authId: state.firebase.auth.uid,
   };
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut()),
+  };
+};
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

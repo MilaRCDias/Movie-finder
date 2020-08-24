@@ -4,6 +4,8 @@ This project is build with React and used a movie database API.
 
 You can type a name, find the movie and know all about it.
 
+under-construction: Login and watchlist 
+
 ### Check it out on Netlify
 
 https://movie-finder-search.netlify.app/

@@ -1,4 +1,5 @@
 import React, { FormEvent, useState, KeyboardEvent } from 'react';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Footer from '../components/Footer';
 import Search from '../components/Search';
@@ -15,7 +16,7 @@ export interface IMovie {
   releasedIn: string;
 }
 
-const Home = (): JSX.Element => {
+const Home = ({ data }): JSX.Element => {
   const [movieList, setMovieList] = useState<IMovie[] | null>(null);
   const [errors, setErrors] = useState<string | null>(null);
 
@@ -51,9 +52,7 @@ const Home = (): JSX.Element => {
           </section>
           <section>
             <Search onClick={handleSearch} />
-            {errors && (
-              <p className="text-center  p-10 text-red-900">{errors}</p>
-            )}
+            {errors && <p className="text-center text-red-900">{errors}</p>}
           </section>
         </div>
         <section className="my-[100px] mx-auto">
@@ -63,8 +62,8 @@ const Home = (): JSX.Element => {
                 {movieList ? 'search result:' : 'Top Rated:'}
               </h4>
             </div>
-            <div className="flex flex-wrap justify-center">
-              <Card movieList={movieList ? movieList : []} />
+            <div className="flex flex-wrap justify-center max-w-[1440px]">
+              <Card movieList={movieList ? movieList : data} />
             </div>
           </div>
         </section>
@@ -72,6 +71,15 @@ const Home = (): JSX.Element => {
       <Footer />
     </main>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}api/search/top-rated`
+  );
+  const data = await res.json();
+
+  return { props: { data } };
 };
 
 export default Home;

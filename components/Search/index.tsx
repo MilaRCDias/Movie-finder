@@ -15,7 +15,7 @@ const Search = ({ onClick }: ISearch): JSX.Element => {
 
   return (
     <form
-      className="flex flex-col w-[40rem] mx-auto my-0"
+      className="flex flex-col w-[40rem] mx-auto mt-0 mb-2"
       onSubmit={(e) => onClick(e, inputValues)}
     >
       <input

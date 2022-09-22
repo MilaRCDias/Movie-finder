@@ -3,8 +3,8 @@
 <svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 300 59" style="enable-background:new 0 0 300 59;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#1E90FF;}
-	.st1{fill:#FFFFFF;}
+	.st0{fill:#fff;}
+	.st1{fill:transparent;}
 </style>
 <circle class="st0" cx="65" cy="33" r="13"/>
 <path class="st0" d="M22.55,12.14l8.58,24.23l8.54-24.23h9.04v33.41h-6.91v-9.13l0.69-15.77l-9.02,24.9h-4.73l-9-24.88l0.69,15.74

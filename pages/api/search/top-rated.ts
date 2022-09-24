@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const apiFetchTopRated = async () => {
-  const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_APP_API_MOVIE_KEY}&language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.APP_API_MOVIE_KEY}&language=en-US&page=1`;
   try {
     const response = await fetch(url);
     const data = await response.json();

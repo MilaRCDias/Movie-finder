@@ -73,7 +73,7 @@ const Home = ({ data }): JSX.Element => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}api/search/top-rated`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/search/top-rated`
   );
   const data = await res.json();
 

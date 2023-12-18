@@ -14,6 +14,7 @@ const Navbar = () => {
     router.pathname === pathname;
 
   const { data: session, status } = useSession();
+  console.log('sesssion,', session, status);
   return (
     <>
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-violet-500">
@@ -46,11 +47,11 @@ const Navbar = () => {
                     <a>Log out</a>
                   </button>
                 ) : (
-                  <Link
-                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    href="/api/auth/signin"
-                  >
-                    <a data-active={isActive('/signup')}>
+                  <Link href="/api/auth/signin">
+                    <a
+                      data-active={isActive('/signup')}
+                      className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                    >
                       <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i>
                       <span className="ml-2">Log-in</span>
                     </a>
